@@ -6,7 +6,7 @@ featured_id = "s-result-sort-select_0"
 add_cart_button_id = 'add-to-cart-button'
 nav_cart_icon_id = 'nav-cart'
 nav_cart_count_id = 'nav-cart-count'
-cart_qty_id = 'a-autoid-0-announce'
+cart_qty_id = 'a-autoid-0'
 empty_cart_id = 'quantity_0'
 
 # CSS SELECTORS

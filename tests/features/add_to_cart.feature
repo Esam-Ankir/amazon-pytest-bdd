@@ -13,3 +13,9 @@ Feature: Amazon Web Browsing
         And Click on the cart button
         Then Check that the product added to the cart is the same product selected initially
 
+    Scenario: Remove from Cart
+        When Click any of the results to open the product page
+        And Click on add to cart button on the side
+        And Click on the cart button
+        And Click on Qty list and choose 0
+        Then Check that the header contains "Your Amazon Cart is empty."
