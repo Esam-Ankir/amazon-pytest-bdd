@@ -24,6 +24,7 @@ def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func
 @pytest.fixture
 def browser():
     b = webdriver.Chrome()
+    b.maximize_window()
     b.implicitly_wait(10)
     yield b
     b.quit()
