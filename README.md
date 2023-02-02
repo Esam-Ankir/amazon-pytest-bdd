@@ -12,6 +12,10 @@ python -m pytest
 ## run specific test(add to cart for example)
 python -m pytest -s -v tests/step_defs/test_add_to_cart.py
 
+## .env file 
+URL=https://www.amazon.com/
+
+
 ## Testing Add To Cart
 Create a test to check the following user journey:
 - Visit amazon.com

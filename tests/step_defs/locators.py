@@ -1,25 +1,46 @@
-# ID
-newest_arrivals_id = "s-result-sort-select_4"
-search_input_id = "twotabsearchtextbox"
-sort_dropdown_id = "a-autoid-0-announce"
-featured_id = "s-result-sort-select_0"
-add_cart_button_id = 'add-to-cart-button'
-nav_cart_icon_id = 'nav-cart'
-nav_cart_count_id = 'nav-cart-count'
-cart_qty_id = 'a-autoid-0'
-empty_cart_id = 'quantity_0'
+from selenium.webdriver.common.by import By
 
-# CSS SELECTORS
-ul_element_selector = 'ul[role="listbox"]'
-result_list_selector = "div.s-main-slot.s-result-list.s-search-results.sg-row"
-one_result_selector = 'div[data-index]:nth-child(6)'
-active_cart_div_selector = 'div[data-name="Active Cart"]'
-active_cart_form_selector = '#activeCartViewForm [data-name="Active Items"] :nth-child(3)'
-third_result_selector = "[data-index='3']"
-header_selector="#sc-active-cart > div > div > div > h1"
+obj = {
+    "newest_arrivals": "s-result-sort-select_4",
+    "search_input": "twotabsearchtextbox",
+    "sort_dropdown": "a-autoid-0-announce",
+    "featured": "s-result-sort-select_0",
+    "add_cart_button": 'add-to-cart-button',
+    "nav_cart_icon": 'nav-cart',
+    "nav_cart_count": 'nav-cart-count',
+    "cart_qty": 'a-autoid-0',
+    "empty_cart": 'quantity_0',
+    "li_tag": 'li',
+    "ul_element": 'ul[role="listbox"]',
+    "result_list": "div.s-main-slot.s-result-list.s-search-results.sg-row",
+    "one_result": 'div[data-index]:nth-child(6)',
+    "active_cart_div": 'div[data-name="Active Cart"]',
+    "active_cart_form": '#activeCartViewForm [data-name="Active Items"] :nth-child(3)',
+    "third_result": "[data-index='3']",
+    "header": "#sc-active-cart > div > div > div > h1",
+    "sidesheet": '//*[@id="attach-sidesheet-view-cart-button"]/span/input',
+    "item_image": 's-image'
+}
 
-# Xpath
-sidesheet_xpath = '//*[@id="attach-sidesheet-view-cart-button"]/span/input'
 
-# CLASSES
-item_image_class = 's-image'
+class Locator():
+    def __init__(self, name):
+        self.name = name
+
+    def get_id(self, browser):
+        return browser.find_element(By.ID, self.name)
+
+    def get_class(self, browser):
+        return browser.find_element(By.CLASS_NAME, self.name)
+
+    def get_selector(self, browser):
+        return browser.find_element(By.CSS_SELECTOR, self.name)
+
+    def get_tag(self, browser):
+        return browser.find_elements(By.TAG_NAME, self.name)
+
+    def get_xpath(self, browser):
+        return browser.find_element(By.XPATH, self.name)
+
+    def get_all_xpath(self, browser):
+        return browser.find_elements(By.XPATH, self.name)
