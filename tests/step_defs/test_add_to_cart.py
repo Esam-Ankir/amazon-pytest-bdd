@@ -1,4 +1,3 @@
-import pytest
 import time
 from pytest_bdd import scenario, when, then
 from tests.step_defs.locators import Locator, obj
