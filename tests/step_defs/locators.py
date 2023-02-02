@@ -10,6 +10,7 @@ obj = {
     "nav_cart_count": 'nav-cart-count',
     "cart_qty": 'a-autoid-0',
     "empty_cart": 'quantity_0',
+    "li_tag": 'li',
     "ul_element": 'ul[role="listbox"]',
     "result_list": "div.s-main-slot.s-result-list.s-search-results.sg-row",
     "one_result": 'div[data-index]:nth-child(6)',
@@ -36,7 +37,7 @@ class Locator():
         return browser.find_element(By.CSS_SELECTOR, self.name)
 
     def get_tag(self, browser):
-        return browser.find_element(By.TAG_NAME, self.name)
+        return browser.find_elements(By.TAG_NAME, self.name)
 
     def get_xpath(self, browser):
         return browser.find_element(By.XPATH, self.name)

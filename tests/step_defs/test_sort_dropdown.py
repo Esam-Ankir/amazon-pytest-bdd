@@ -1,8 +1,6 @@
 from pytest_bdd import scenarios, when, then, parsers
 from tests.step_defs.locators import Locator, obj
 
-AMAZON_URL = 'https://www.amazon.com/'
-
 scenarios('../features/dropdown.feature')
 
 
@@ -14,7 +12,7 @@ def on_sort(browser):
 @then(parsers.parse('check that it has "{num:d}" list items'))
 def check_items(browser, num):
     ul_element = Locator(obj['ul_element']).get_selector(browser)
-    li_element = Locator(obj['li']).get_tag(ul_element)
+    li_element = Locator(obj['li_tag']).get_tag(ul_element)
     assert len(li_element) == num
 
 
