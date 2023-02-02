@@ -12,7 +12,6 @@ def test_add_to_cart():
 @when('Click any of the results to open the product page', target_fixture="open_product_page")
 def open_product_page(browser):
     third_result = Locator(obj['third_result']).get_selector(browser)
-    # global third_result_data_asin
     data_asin = third_result.get_dom_attribute('data-asin')
     Locator(obj['item_image']).get_class(third_result).click()
     return data_asin
