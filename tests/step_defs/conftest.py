@@ -2,7 +2,7 @@ import pytest
 from pytest_bdd import given, when, parsers
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from tests.step_defs.locators import Locator, obj
+from tests.step_defs.locators import Locator
 from decouple import config
 
 AMAZON_URL = config('URL')
@@ -28,5 +28,5 @@ def amazon_home(browser):
 
 @when(parsers.parse('Type in a search term "{text}" in the search box and search'))
 def search_phrase(browser, text):
-    search_input = Locator(obj['search_input']).get_id(browser)
+    search_input = Locator(browser).search_input()
     search_input.send_keys(text + Keys.ENTER)
