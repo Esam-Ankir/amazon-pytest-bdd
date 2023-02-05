@@ -1,14 +1,13 @@
+from webbrowser import Chrome
 import pytest
 from pytest_bdd import given, when, parsers
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from tests.step_defs.locators import Locator, obj
 from decouple import config
+from test_models.utilities import get_element, type_and_enter
+from tests.step_defs.locators import locators
 
-AMAZON_URL = config('URL')
 
-
-def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
+def pytest_bdd_step_error(step):
     print(f'Step failed: {step}')
 
 
@@ -21,12 +20,12 @@ def browser():
     b.quit()
 
 
-@given('the Amazon home page is displayed', target_fixture='amazon_home')
-def amazon_home(browser):
-    browser.get(AMAZON_URL)
+@given('the Amazon home page is displayed')
+def amazon_home(browser: Chrome) -> None:
+    browser.get(config('URL'))
 
 
 @when(parsers.parse('Type in a search term "{text}" in the search box and search'))
-def search_phrase(browser, text):
-    search_input = Locator(obj['search_input']).get_id(browser)
-    search_input.send_keys(text + Keys.ENTER)
+def search_phrase(browser: Chrome, text) -> None:
+    search_input = get_element(browser, locators["search_input"])
+    type_and_enter(search_input, text)

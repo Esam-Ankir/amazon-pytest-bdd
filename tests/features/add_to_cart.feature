@@ -9,8 +9,9 @@ Feature: Amazon Cart Operation
 
     Scenario: Add And Remove From Cart
         When Click any of the results to open the product page
-        And Click on add to cart button on the side
+        And Click on "add_cart_button"
         And Click on the cart button
         Then Check that the product added to the cart is the same product selected initially
-        When Click on Qty list and choose 0
+        When Click on "cart_qty"
+        When Click on "empty_cart"
         Then Check that the header contains "Your Amazon Cart is empty."
