@@ -32,7 +32,7 @@ def click_cart_button(browser: Chrome) -> None:
 
 
 @then('Check that the product added to the cart is the same product selected initially')
-def check_same_product_added(browser: Chrome, open_product_page:str) -> None:
+def check_same_product_added(browser: Chrome, open_product_page: str) -> None:
     active_form = get_element(browser, locators["active_cart_form"])
     active_form_data_asin = active_form.get_dom_attribute('data-asin')
     assert active_form_data_asin == open_product_page

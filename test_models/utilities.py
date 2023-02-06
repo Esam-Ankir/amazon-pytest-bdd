@@ -1,15 +1,16 @@
+from webbrowser import Chrome
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.keys import Keys
 from typing import Tuple
 
 
-def get_element(browser, locator: Tuple[str, str]) -> WebElement:
+def get_element(browser: Chrome, locator: Tuple[str, str]) -> WebElement:
     (type, selector) = locator
     element = browser.find_element(type, selector)
     return element
 
 
-def get_elements(browser, locator: Tuple[str, str]) -> list[WebElement]:
+def get_elements(browser: Chrome, locator: Tuple[str, str]) -> list[WebElement]:
     (type, selector) = locator
     elements = browser.find_elements(type, selector)
     return elements

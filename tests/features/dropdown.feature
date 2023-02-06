@@ -8,7 +8,7 @@ Feature: Amazon Web Browsing
         When Type in a search term "phone" in the search box and search
         And Click on "sort_dropdown"
 
-    Scenario: sort dropdown
+    Scenario: Sort Dropdown
         Then check that it has "5" list items
 
     Scenario: Newest Arrivals

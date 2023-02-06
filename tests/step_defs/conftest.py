@@ -7,12 +7,12 @@ from test_models.utilities import get_element, type_and_enter
 from tests.step_defs.locators import locators
 
 
-def pytest_bdd_step_error(step):
+def pytest_bdd_step_error(step: str) -> None:
     print(f'Step failed: {step}')
 
 
 @pytest.fixture
-def browser():
+def browser() -> (webdriver.Chrome):
     b = webdriver.Chrome()
     b.maximize_window()
     b.implicitly_wait(10)
@@ -26,6 +26,6 @@ def amazon_home(browser: Chrome) -> None:
 
 
 @when(parsers.parse('Type in a search term "{text}" in the search box and search'))
-def search_phrase(browser: Chrome, text) -> None:
+def search_phrase(browser: Chrome, text: str) -> None:
     search_input = get_element(browser, locators["search_input"])
     type_and_enter(search_input, text)
